@@ -1,0 +1,11 @@
+Package: tyeRman
+Type: Package
+Title: Jabus Tyerman's public gold functions
+Version: 0.1.0
+Date: 2016-06-01
+Authors@R: person("Jabus", "Tyerman", email = "jabustyerman@gmail.com", role = c("aut", "cre"))
+Description: A collection of tools and data science examples I've built over the
+    years. This will be a work in progress.
+License: WTFPL + file LICENSE
+LazyData: TRUE
+RoxygenNote: 5.0.1.9000

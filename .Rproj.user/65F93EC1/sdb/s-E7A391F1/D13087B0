@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# tyeRman misc functions\n\n#' impute\n#' This function is a quick and dirty imputation function\n#' @param d is a dataframe containg columns with NA to be imputed, func is the function to sue to calc the imputed value, uses median currently.\n#' @export\n#' @keywords impute\n#' @examples\n#' impute(d, \"median\")\n\nimpute <- function(d, func) {\n  d.imp <- d\n  for (i in 1:ncol(d.imp)) {\n    for (j in 1:nrow(d.imp)) {\n      med <- sapply(d.imp[i], func, na.rm=TRUE)[[1]]\n      if (is.na(d.imp[j,i])) {d.imp[j,i] <- med}\n    }\n  }\n  return(d.imp)\n}\n\n#' panel.cor\n#' This function is a custom add-on for use with pairs command.\n#' @param x, y are numeric vectors, digits is number of sig figs to display\n#' @export\n#' @keywords graphics\n#' @examples\n#' panel.cor()\n\npanel_cor <- function(x, y, digits = 2, prefix = \"\", cex.cor, ...)\n{\n  usr <- par(\"usr\"); on.exit(par(usr))\n  par(usr = c(0, 1, 0, 1))\n  r <- abs(cor(x, y))\n  txt <- format(c(r, 0.123456789), digits = digits)[1]\n  txt <- paste0(prefix, txt)\n  if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)\n  text(0.5, 0.5, txt, cex = cex.cor * r)\n}\n\n#' get_summary_stats\n#' This function is a custom add-on for use with pairs command.\n#' @param x is vector\n#' @export\n#' @keywords statistics\n#' @examples\n#' get_summary_stats(x)\n\nget_summary_stats <- function(x) {\n  return(c(\tm=mean(x, na.rm=TRUE)\n            , med=median(x, na.rm=TRUE)\n            , sd=sd(x, na.rm=TRUE)\n            , cv = (sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))\n            , n = length(x)\n  ))\n}\n\n",
+    "created" : 1464903200457.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "323629388",
+    "id" : "D13087B0",
+    "lastKnownWriteTime" : 1464903850,
+    "last_content_update" : 1464903850434,
+    "path" : "~/proj/tyeRman/R/tyeRman.R",
+    "project_path" : "R/tyeRman.R",
+    "properties" : {
+        "marks" : "<:42,21\n>:42,21"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
